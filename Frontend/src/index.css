@@ -1,0 +1,16 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #222;
+  background-color: #f5f5f5;
+}
+
+/*
+  Makes navigation to sections smooth.
+*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}

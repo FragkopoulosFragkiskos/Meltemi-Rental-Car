@@ -1,0 +1,659 @@
+
+/*
+  Applies to every element.
+  Makes width and height easier to control.
+*/
+* {
+  box-sizing: border-box;
+}
+
+/*
+  Basic styling for the whole page.
+*/
+body {
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+/*
+  Header sits on top of the hero image.
+*/
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 60px;
+
+  background-color: transparent;
+
+  z-index: 10;
+}
+
+/*
+  Website name.
+*/
+header h1 {
+  margin: 0;
+
+  font-size: 24px;
+
+  color: white;
+}
+
+/*
+  Places the navigation links next to each other.
+*/
+header nav {
+  display: flex;
+
+  gap: 30px;
+}
+
+/*
+  Navigation links shown on top of the hero image.
+*/
+header nav a {
+  text-decoration: none;
+
+  color: white;
+
+  font-size: 16px;
+}
+
+/*
+  Changes the navigation link color
+  when the mouse is over it.
+*/
+header nav a:hover {
+  color: #ddd;
+}
+
+/*
+  Main Hero section.
+*/
+main {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url('./assets/herojeepcars.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/*
+  Controls the width and spacing
+  of the main content.
+*/
+main section {
+  width: 100%;
+
+  padding: 40px 60px;
+}
+
+/*
+  Main heading of the Hero section.
+*/
+main h2 {
+  margin-bottom: 15px;
+
+  font-size: 48px;
+
+  color: #1e5f74;
+}
+
+/*
+  Description text below the main heading.
+*/
+main p {
+  font-size: 18px;
+
+  color: white;
+}
+
+/*
+  Basic styling for buttons.
+*/
+button {
+  margin-top: 20px;
+
+  padding: 14px 28px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: #1e5f74;
+  color: white;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+/*
+  Changes buttons when the mouse is over them.
+*/
+button:hover {
+  background-color: #164b5c;
+}
+
+/*
+  Footer section.
+*/
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 40px;
+
+  padding: 30px 20px;
+
+  background-color: #222;
+  color: white;
+}
+
+/*
+  Footer title.
+*/
+footer h2 {
+  margin: 0;
+
+  font-size: 24px;
+
+  color: #1e5f74;
+}
+
+/*
+  Footer contact information.
+*/
+footer p {
+  margin: 0;
+
+  font-size: 15px;
+
+  color: #ddd;
+}
+
+/*
+  Cars section.
+*/
+#cars {
+  text-align: center;
+}
+
+/*
+  Cars section title.
+*/
+#cars h2 {
+  margin: 0;
+
+  padding-top: 50px;
+
+  font-size: 36px;
+
+  color: #1e5f74;
+}
+
+/*
+  Container for all car cards.
+*/
+.cars-container {
+  display: flex;
+
+  gap: 20px;
+
+  padding: 40px 60px;
+}
+
+/*
+  Individual car card.
+*/
+.car {
+  flex: 1;
+
+  padding: 25px;
+
+  background-color: white;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+/*
+  Makes all car images have the same size.
+*/
+.car img {
+  display: block;
+
+  width: 100%;
+  height: 220px;
+
+  object-fit: cover;
+}
+
+/*
+  Why Us section.
+*/
+#why-us {
+  padding: 70px 60px;
+
+  text-align: center;
+
+  background-color: #ffffff;
+}
+
+/*
+  Main title of the Why Us section.
+*/
+#why-us h2 {
+  margin-bottom: 40px;
+
+  font-size: 36px;
+
+  color: #1e5f74;
+}
+
+/*
+  Container for the three reasons.
+*/
+.why-us-container {
+  display: flex;
+
+  gap: 25px;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+/*
+  Individual reason card.
+*/
+.reason {
+  flex: 1;
+
+  padding: 30px;
+
+  background-color: #f5f5f5;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+/*
+  Reason title.
+*/
+.reason h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+
+  font-size: 22px;
+
+  color: #1e5f74;
+}
+
+/*
+  Reason description.
+*/
+.reason p {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.6;
+
+  color: #444;
+}
+
+
+/* ==================================================
+   RENTAL REQUEST FORM
+   ================================================== */
+
+/*
+  Main section around the rental request form.
+*/
+.request-form-section {
+  padding: 80px 20px;
+
+  background-color: #f5f5f5;
+}
+
+/*
+  Main rental request form.
+  Creates the white card containing all fields.
+*/
+.request-form {
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  padding: 45px;
+
+  background-color: #ffffff;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/*
+  Rental request title.
+*/
+.request-form h2 {
+  margin: 0 0 30px;
+
+  text-align: center;
+
+  font-size: 32px;
+  font-weight: 700;
+
+  color: #1e5f74;
+}
+
+/*
+  Places related form fields
+  next to each other.
+*/
+.form-row {
+  display: flex;
+
+  gap: 20px;
+}
+
+/*
+  Each field takes equal space
+  inside the row.
+*/
+.form-row .form-group {
+  flex: 1;
+}
+
+/*
+  Groups each label and input together.
+*/
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 22px;
+}
+
+/*
+  Labels above each form field.
+*/
+.form-group label {
+  margin-bottom: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #333;
+}
+
+/*
+  Text inputs, date inputs,
+  dropdowns and textarea.
+*/
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+
+  padding: 13px 15px;
+
+  border: 1px solid #d5d5d5;
+  border-radius: 8px;
+
+  background-color: #ffffff;
+
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+
+  color: #333;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/*
+  Changes the field appearance
+  when the user clicks inside it.
+*/
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #1e5f74;
+
+  box-shadow: 0 0 0 3px rgba(30, 95, 116, 0.12);
+}
+
+/*
+  Changes the placeholder text color.
+*/
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+}
+
+/*
+  Message field.
+*/
+.form-group textarea {
+  min-height: 130px;
+
+  resize: vertical;
+}
+
+/*
+  Rental request submit button.
+*/
+.request-form button {
+  width: 100%;
+
+  margin-top: 8px;
+
+  padding: 15px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: #1e5f74;
+  color: white;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/*
+  Button hover effect.
+*/
+.request-form button:hover {
+  background-color: #164b5c;
+
+  transform: translateY(-1px);
+}
+
+/* Message returned from Make */
+.status-message {
+  margin-top: 20px;
+  padding: 14px 18px;
+
+  background-color: #fef3c7;
+  color: #92400e;
+
+  border: 1px solid #f59e0b;
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ==================================================
+   MOBILE DESIGN
+   ================================================== */
+
+@media (max-width: 768px) {
+
+  /*
+    Main Hero section.
+  */
+  main section {
+    padding: 40px 20px;
+  }
+
+  /*
+    Smaller Hero heading.
+  */
+  main h2 {
+    font-size: 36px;
+  }
+
+  /*
+    Smaller Header spacing.
+  */
+  header {
+    padding: 20px;
+  }
+
+  /*
+    Smaller space between navigation links.
+  */
+  header nav {
+    gap: 15px;
+  }
+
+  /*
+    Car cards are displayed vertically.
+  */
+  .cars-container {
+    flex-direction: column;
+
+    padding: 40px 20px;
+  }
+
+  /*
+    Car images become slightly shorter.
+  */
+  .car img {
+    height: 180px;
+  }
+
+  /*
+    Why Us cards are displayed vertically.
+  */
+  .why-us-container {
+    flex-direction: column;
+  }
+
+  /*
+    Smaller Why Us section spacing.
+  */
+  #why-us {
+    padding: 50px 20px;
+  }
+
+  /*
+    Smaller Why Us title.
+  */
+  #why-us h2 {
+    font-size: 30px;
+  }
+
+  /*
+    Smaller Cars title.
+  */
+  #cars h2 {
+    font-size: 30px;
+
+    padding: 40px 20px 0;
+  }
+
+  /*
+    Footer information is displayed vertically.
+  */
+  footer {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  /*
+    Smaller spacing around the rental form.
+  */
+  .request-form-section {
+    padding: 50px 20px;
+  }
+
+  /*
+    Smaller form card padding on mobile.
+  */
+  .request-form {
+    padding: 30px 20px;
+
+    border-radius: 12px;
+  }
+
+  /*
+    Smaller rental form title.
+  */
+  .request-form h2 {
+    font-size: 28px;
+
+    margin-bottom: 25px;
+  }
+
+  /*
+    Slightly smaller form fields on mobile.
+  */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px;
+  }
+
+  /*
+    On smaller screens,
+    form fields are displayed vertically.
+  */
+  .form-row {
+    flex-direction: column;
+
+    gap: 0;
+  }
+
+  /* Status message on mobile */
+  .status-message {
+    margin-top: 16px;
+    padding: 12px 14px;
+
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+  }
+}
