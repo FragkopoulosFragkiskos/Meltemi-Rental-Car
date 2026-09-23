@@ -1,3 +1,6 @@
 
 # JetBrains IDE files
 .idea/
+
+# Generated PDF files
+Backend/pdf/*.pdf
