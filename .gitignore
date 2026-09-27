@@ -27,3 +27,6 @@ Thumbs.db
 
 # Generated PDF files
 *.pdf
+
+# Cloudflare Tunnel
+cloudflared.exe
