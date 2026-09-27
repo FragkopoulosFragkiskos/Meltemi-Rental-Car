@@ -1,6 +1,29 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
 
-# JetBrains IDE files
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Node dependencies
+node_modules/
+
+# Build files
+dist/
+dist-ssr/
+
+# IDE files
 .idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
 
 # Generated PDF files
-Backend/pdf/*.pdf
+*.pdf
