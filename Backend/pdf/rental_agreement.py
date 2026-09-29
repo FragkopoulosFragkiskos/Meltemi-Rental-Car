@@ -84,17 +84,31 @@ def create_rental_agreement(booking):
 
     pdf.setFont("Helvetica", 11)
 
-    # Display the customer's name
+    # Display the customer's first name
     pdf.drawString(
         50,
         height - 250,
-        f"Customer Name: {booking['customer_name']}"
+        f"First Name: {booking['first_name']}"
+    )
+
+    # Display the customer's last name
+    pdf.drawString(
+        50,
+        height - 270,
+        f"Last Name: {booking['last_name']}"
+    )
+
+    # Display the customer's date of birth
+    pdf.drawString(
+        50,
+        height - 290,
+        f"Date of Birth: {booking['date_of_birth']}"
     )
 
     # Display the customer's email
     pdf.drawString(
         50,
-        height - 270,
+        height - 310,
         f"Email: {booking['email']}"
     )
 
@@ -103,35 +117,35 @@ def create_rental_agreement(booking):
     # --------------------------------------------------
 
     pdf.setFont("Helvetica-Bold", 13)
-    pdf.drawString(50, height - 310, "Rental Information")
+    pdf.drawString(50, height - 350, "Rental Information")
 
     pdf.setFont("Helvetica", 11)
 
     # Display the vehicle category
     pdf.drawString(
         50,
-        height - 335,
+        height - 375,
         f"Vehicle Category: {booking['vehicle_category']}"
     )
 
     # Display the pickup date
     pdf.drawString(
         50,
-        height - 355,
+        height - 395,
         f"Pickup Date: {booking['pickup_date']}"
     )
 
     # Display the return date
     pdf.drawString(
         50,
-        height - 375,
+        height - 415,
         f"Return Date: {booking['return_date']}"
     )
 
     # Display the calculated rental duration
     pdf.drawString(
         50,
-        height - 395,
+        height - 435,
         f"Rental Duration: {rental_duration} days"
     )
 
@@ -140,21 +154,21 @@ def create_rental_agreement(booking):
     # --------------------------------------------------
 
     pdf.setFont("Helvetica-Bold", 13)
-    pdf.drawString(50, height - 435, "Pricing")
+    pdf.drawString(50, height - 475, "Pricing")
 
     pdf.setFont("Helvetica", 11)
 
     # Display the daily rental price
     pdf.drawString(
         50,
-        height - 460,
+        height - 500,
         f"Daily Rate: EUR {daily_rate}"
     )
 
     # Display the calculated total price
     pdf.drawString(
         50,
-        height - 480,
+        height - 520,
         f"Total Price: EUR {total_price}"
     )
 
@@ -163,28 +177,28 @@ def create_rental_agreement(booking):
     # --------------------------------------------------
 
     pdf.setFont("Helvetica-Bold", 13)
-    pdf.drawString(50, height - 520, "Rental Terms")
+    pdf.drawString(50, height - 560, "Rental Terms")
 
     pdf.setFont("Helvetica", 11)
 
     # Display insurance information
     pdf.drawString(
         50,
-        height - 545,
+        height - 585,
         f"Insurance: {booking['insurance']}"
     )
 
     # Display fuel policy
     pdf.drawString(
         50,
-        height - 565,
+        height - 605,
         f"Fuel Policy: {booking['fuel_policy']}"
     )
 
     # Display additional driver information
     pdf.drawString(
         50,
-        height - 585,
+        height - 625,
         f"Additional Driver: {booking['additional_driver']}"
     )
 
@@ -193,35 +207,35 @@ def create_rental_agreement(booking):
     # --------------------------------------------------
 
     pdf.setFont("Helvetica-Bold", 13)
-    pdf.drawString(50, height - 625, "Signatures")
+    pdf.drawString(50, height - 665, "Signatures")
 
     pdf.setFont("Helvetica", 11)
 
     # Customer signature
     pdf.line(
         50,
-        height - 670,
+        height - 710,
         250,
-        height - 670
+        height - 710
     )
 
     pdf.drawString(
         50,
-        height - 690,
+        height - 730,
         "Customer Signature"
     )
 
     # Rental company signature
     pdf.line(
         330,
-        height - 670,
+        height - 710,
         530,
-        height - 670
+        height - 710
     )
 
     pdf.drawString(
         330,
-        height - 690,
+        height - 730,
         "Meltemi Rentals"
     )
 

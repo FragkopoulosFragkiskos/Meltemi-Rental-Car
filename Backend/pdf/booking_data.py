@@ -6,8 +6,12 @@ class BookingData:
     # that will be used to create the rental agreement.
     def __init__(self, data):
 
-        # Get the booking information received from Make
-        self.customer_name = data["name"]
+        # Get the customer information received from Make
+        self.first_name = data["firstName"]
+        self.last_name = data["lastName"]
+        self.date_of_birth = data["dateOfBirth"]
+
+        # Get the rental information received from Make
         self.email = data["email"]
         self.vehicle_category = data["car"]
         self.pickup_date = data["pickupDate"]
@@ -25,8 +29,8 @@ class BookingData:
         self.additional_driver = "Included"
 
     def create_booking_id(self):
-        # Get the first letter of the customer's name
-        customer_initial = self.customer_name[0].upper()
+        # Get the first letter of the customer's first name
+        customer_initial = self.first_name[0].upper()
 
         # Get the first digit of the issue date
         issue_digit = self.issue_date[0]
@@ -57,7 +61,9 @@ class BookingData:
         # that can be used by the rental agreement generator.
         return {
             "booking_id": self.booking_id,
-            "customer_name": self.customer_name,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "date_of_birth": self.date_of_birth,
             "email": self.email,
             "vehicle_category": self.vehicle_category,
             "pickup_date": self.pickup_date,
