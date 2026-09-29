@@ -3,7 +3,9 @@ import { useState } from 'react'
 function RequestForm() {
   // Stores all the information entered by the user
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
+    dateOfBirth: '',
     email: '',
     pickupDate: '',
     returnDate: '',
@@ -22,6 +24,28 @@ function RequestForm() {
     })
   }
 
+  // Checks if the customer is at least 18 years old on the pickup date
+  const isCustomerAdult = () => {
+    const birthDate = new Date(formData.dateOfBirth)
+    const pickupDate = new Date(formData.pickupDate)
+
+    let age = pickupDate.getFullYear() - birthDate.getFullYear()
+
+    const monthDifference = pickupDate.getMonth() - birthDate.getMonth()
+
+    // If the birthday has not happened yet in the pickup year,
+    // subtract one year from the age
+    if (
+      monthDifference < 0 ||
+      (monthDifference === 0 &&
+      pickupDate.getDate() < birthDate.getDate())
+    ) {
+      age--
+    }
+
+    return age >= 18
+  }
+
   // Runs when the user submits the form
   const handleSubmit = async (event) => {
     // Prevents the page from refreshing
@@ -30,10 +54,18 @@ function RequestForm() {
     // Clears the previous message
     setStatusMessage('')
 
+    // Checks if the customer is at least 18 years old
+    if (!isCustomerAdult()) {
+      setStatusMessage(
+        'You must be at least 18 years old on the pickup date.'
+      )
+      return
+    }
+
     try {
       // Sends the form data to the Make webhook
       const response = await fetch(
-         import.meta.env.VITE_MAKE_WEBHOOK_URL,
+        import.meta.env.VITE_MAKE_WEBHOOK_URL,
         {
           method: 'POST',
 
@@ -58,7 +90,9 @@ function RequestForm() {
         // If the booking was successful, clear the form
         if (result.success) {
           setFormData({
-            name: '',
+            firstName: '',
+            lastName: '',
+            dateOfBirth: '',
             email: '',
             pickupDate: '',
             returnDate: '',
@@ -83,35 +117,67 @@ function RequestForm() {
       <h2>Rental Request Form</h2>
 
       {/* Customer information */}
+
+      {/* First name and last name */}
       <div className="form-row">
 
-        {/* Customer name */}
-        <div className="form-group">
-          <label>Full Name</label>
+      {/* Customer first name */}
+      <div className="form-group">
+        <label>First Name</label>
 
-          <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            value={formData.name}
-            onChange={handleChange}
-          />
-        </div>
-
-        {/* Customer email */}
-        <div className="form-group">
-          <label>Email</label>
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </div>
-
+        <input
+          type="text"
+          name="firstName"
+          placeholder="First Name"
+          value={formData.firstName}
+          onChange={handleChange}
+        />
       </div>
+
+      {/* Customer last name */}
+      <div className="form-group">
+        <label>Last Name</label>
+
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Last Name"
+          value={formData.lastName}
+          onChange={handleChange}
+        />
+      </div>
+
+    </div>
+
+      {/* Date of birth and email */}
+      <div className="form-row">
+
+      {/* Customer date of birth */}
+      <div className="form-group">
+        <label>Date of Birth</label>
+
+        <input
+          type="date"
+          name="dateOfBirth"
+          value={formData.dateOfBirth}
+          onChange={handleChange}
+        />
+      </div>
+
+      {/* Customer email */}
+      <div className="form-group">
+        <label>Email</label>
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+      </div>
+
+    </div>
 
       {/* Rental dates */}
       <div className="form-row">

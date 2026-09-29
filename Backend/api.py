@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
+from datetime import datetime
 import os
 
 from Backend.pdf.booking_data import BookingData
@@ -17,6 +18,28 @@ app = Flask(__name__)
 API_KEY = os.getenv("API_KEY")
 
 
+def is_customer_adult(date_of_birth, pickup_date):
+    # Convert the dates from text to date objects
+    birth_date = datetime.strptime(date_of_birth, "%Y-%m-%d")
+    pickup = datetime.strptime(pickup_date, "%Y-%m-%d")
+
+    # Calculate the customer's age
+    age = pickup.year - birth_date.year
+
+    # Check if the birthday has already happened
+    # during the pickup year
+    if (
+        pickup.month < birth_date.month
+        or (
+            pickup.month == birth_date.month
+            and pickup.day < birth_date.day
+        )
+    ):
+        age -= 1
+
+    return age >= 18
+
+
 @app.route("/booking", methods=["POST"])
 def receive_booking():
 
@@ -32,6 +55,16 @@ def receive_booking():
 
     # Get the booking data sent to the API
     booking_data = request.json
+
+    # Check if the customer is at least 18 years old
+    if not is_customer_adult(
+        booking_data["dateOfBirth"],
+        booking_data["pickupDate"]
+    ):
+        return jsonify({
+            "success": False,
+            "message": "Customer must be at least 18 years old on the pickup date."
+        }), 400
 
     # Create a BookingData object
     booking = BookingData(booking_data)
